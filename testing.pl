@@ -24,9 +24,10 @@
 
 :-[readFile, parseProblem, parseDomain, common, common2].
 %:- ['a-star', forward, h_add].
-%:- ['a-star', forward, h_0].
-:- ['a-star', forward, h_max].
+:- ['mutants/a-star-2-4.pl', forward, h_0].
+%:- ['a-star', forward, h_max].
 %:- ['a-star', forward, h_diff].
+%:- ['bfs', forward, h_0].
 
 :- begin_tests(test_hanoi).
 
