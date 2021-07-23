@@ -1,5 +1,5 @@
-% a-star mutant 2-5. weighted_member is changed to my_ord_member,
-% and solution to solution2. Line 59 and 100 and 37.
+% a-star mutant 2-9. solution is changed to solution2.
+% Line 37
 
 % Dostupne veci:
 %step(+State, -NewState)
@@ -34,7 +34,7 @@ a_star(PQ, V, Solution, C):-
 %               write('FOUND SOLUTION'),nl,
 %               state_record(S, _, _, D, SR), write(C-D), write('   '),write(S),nl,
 %               writel(V),nl,halt,
-                solution2(SR, V, Solution).
+                solution(SR, V, Solution).
 %               solution(SR, V, Solution).
 
 a_star(PQ, V, Solution, C):-

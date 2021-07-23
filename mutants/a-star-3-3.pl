@@ -1,6 +1,3 @@
-% a-star mutant 2-5. weighted_member is changed to my_ord_member,
-% and solution to solution2. Line 59 and 100 and 37.
-
 % Dostupne veci:
 %step(+State, -NewState)
 %is_goal(State)

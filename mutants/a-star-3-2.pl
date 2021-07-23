@@ -1,5 +1,5 @@
-% a-star mutant 2-5. weighted_member is changed to my_ord_member,
-% and solution to solution2. Line 59 and 100 and 37.
+% a-star-3-2. Do not add last element to heap.
+% Line 69.
 
 % Dostupne veci:
 %step(+State, -NewState)
@@ -66,7 +66,7 @@ next_node(SR, _Q, V, E, NewSR):-
                 state_record(NewS, S, A, ND, NewSR).
 
 %add_list_to_heap(+OldHeap, List, NewHeap)
-add_list_to_heap(OH, [], OH).
+add_list_to_heap(OH, [_], OH).
 add_list_to_heap(OH, [K-D|T], NH):-
                 add_to_heap(OH, K, D, H),
                 add_list_to_heap(H, T, NH).

@@ -24,7 +24,7 @@
 
 :-[readFile, parseProblem, parseDomain, common, common2].
 %:- ['a-star', forward, h_add].
-:- ['mutants/a-star-2-4.pl', forward, h_0].
+:- ['mutants/a-star-3-2.pl', forward, h_0].
 %:- ['a-star', forward, h_max].
 %:- ['a-star', forward, h_diff].
 %:- ['bfs', forward, h_0].

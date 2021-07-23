@@ -1,5 +1,5 @@
-% a-star mutant 2-5. weighted_member is changed to my_ord_member,
-% and solution to solution2. Line 59 and 100 and 37.
+% a-star mutant 2-1. No member check in next_node
+% and solution to solution2 Line 65 and 37
 
 % Dostupne veci:
 %step(+State, -NewState)
@@ -34,7 +34,7 @@ a_star(PQ, V, Solution, C):-
 %               write('FOUND SOLUTION'),nl,
 %               state_record(S, _, _, D, SR), write(C-D), write('   '),write(S),nl,
 %               writel(V),nl,halt,
-                solution2(SR, V, Solution).
+                solution(SR, V, Solution).
 %               solution(SR, V, Solution).
 
 a_star(PQ, V, Solution, C):-
@@ -62,7 +62,7 @@ next_node(SR, _Q, V, E, NewSR):-
                 h(S, H),
                 E is H+D,
                 ND is D+1,
-                \+ weighted_member(NewS, V, ND),
+%                \+ weighted_member(NewS, V, ND),
                 state_record(NewS, S, A, ND, NewSR).
 
 %add_list_to_heap(+OldHeap, List, NewHeap)
@@ -95,9 +95,9 @@ weighted_member(S, [_|T], K) :-
 % my_pop(+OldHeap, +Key (deep), -NewState, -NewHeap, +Visited)
 my_pop(OH, K, SR, NH, V) :-
                 get_from_heap(OH, K, SR, NH),
-                SR = [S, _, _, D], 
-%               \+ my_ord_member(S, V), % This is faster
-                \+ weighted_member(S, V, D), % This is essential for non-monotone heuristics
+                SR = [S, _, _, _D], 
+               \+ my_ord_member(S, V), % This is faster
+%                \+ weighted_member(S, V, D), % This is essential for non-monotone heuristics
                 !.
 my_pop(OH, K, D, NH, V) :-
                 get_from_heap(OH, _, _, CurrentHeap), 

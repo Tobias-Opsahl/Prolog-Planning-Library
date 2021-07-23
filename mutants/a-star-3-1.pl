@@ -1,5 +1,5 @@
-% a-star mutant 2-5. weighted_member is changed to my_ord_member,
-% and solution to solution2. Line 59 and 100 and 37.
+% a-star mutant 3-1. Remove NextNodes = [].
+% Line 45.
 
 % Dostupne veci:
 %step(+State, -NewState)
@@ -42,7 +42,7 @@ a_star(PQ, V, Solution, C):-
 %               print_node(SR),
 %               get_from_heap(PQ, _K, SR, RPQ), 
                 ord_add_element(V, SR, NV),
-                (bagof(K-NS, next_node(SR, PQ, NV, K, NS), NextNodes) ; NextNodes=[]),
+                (bagof(K-NS, next_node(SR, PQ, NV, K, NS), NextNodes)),
 %               state_record(S, _, _, D, SR), write(_K-D), write('   '),write(S),length(NextNodes, L), write(L),nl,
 %               write(NextNodes),nl,
 

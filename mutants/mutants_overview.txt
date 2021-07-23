@@ -9,7 +9,6 @@ h_add failed, 32 tests passed, 4 tests failed
 h_manhattan failed, 29 tests passed, 7 tests failed
 h_dist failed, 5 tests passed, 31 tests failed
 
-
 a-star-1-x: Arithmetic 
 	a-star-1-1: Initial deep and nodes initial deep are changed from
 		0 and 0 to 10 and 2. Line 19 and 20.
@@ -54,11 +53,41 @@ a-star-2-x: Alter visited nodes.
 			Failed by computing time, 21 tests passed, 15 tests failed, h_0
 			Failed by computing time, 24 tests passed, 12 tests failed, h_max
 			
-	
-	
-a-star-3-x: 
+	a-star-2-5: weighted_member is changed to my_ord_member and solution is 
+		changed to solution2, line 59, 100 and 37.
+			Passed, 36/36, h_0 and h_max
+	a-star-2-6: my_pop is changed to get_from_heap and solution is changed to
+		solution2, line 30, 41 and 37.
+			Failed, 23 tests passed, 13 tests failed, h_0
+			Failed, 24 tests passed, 12 tests failed, h_max
+	a-star-2-7: No member-check in next_node and solution is changed to solution2, 
+		line 65.
+			Passed, 36/36, h_0,
+			Failed, 35 tests passed, 1 test failed, h_max
+	a-star-2-8: No member-check in next_node, and my_pop is changed to 
+		get_from_heap and solution is changed to solution2 line 65, 30, 41 and 37.
+			Failed, 12 tests passed, 24 tests failed, h_0
+			Failed, 14 tests passed, 22 tests failed, h_max
+	a-star-2-9: solution is changed to solution2, line 37.
+			Passed, 36/36, h_0
+			Failed, 35 tests passed, 1 test failed, h_max
+			
+	a-star-2-10: New Visited is changed to Old Visited, line 45.
+			Passed, 36/36, h_0 and h_max
+	a-star-2-11: Old Visited list is sent to a-star, line 52.
+			Failed, 36/36, h_0 and h_max
+a-star-3-x: Miscellaneous
+	a-star-3-1: NextNodes = [] is removed, line 45.
+			Failed, 15 tests passed, 21 tests failed, h_0
+			Failed, 19 tests passed, 17 tests failed, h_max
+	a-star-3-2: Last element in list does not get added to heap, line 69.
+			Failed, 6 tests passed, 30 tests failed, h_0
+			Failed, 6 tests passed, 30 tests failed, h_max
 
-
+forward:
+	forward-1: Not checking negative effects.
+	forward-2: Not checking positive effects.
+	forward-3: Not sorting the predicates and effects
 
 Mutants idea:
 

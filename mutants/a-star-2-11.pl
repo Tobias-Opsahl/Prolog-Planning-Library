@@ -1,5 +1,5 @@
-% a-star mutant 2-5. weighted_member is changed to my_ord_member,
-% and solution to solution2. Line 59 and 100 and 37.
+% a-star mutant 2-11. Send old Visited in a-star.
+% Line 52.
 
 % Dostupne veci:
 %step(+State, -NewState)
@@ -49,7 +49,7 @@ a_star(PQ, V, Solution, C):-
                 add_list_to_heap(RPQ, NextNodes, NPQ),
                 
                 stat_node,
-                a_star(NPQ, NV, Solution, C).
+                a_star(NPQ, V, Solution, C).
 
 %next_node(+StateRecord, +Queue, +Visited, -EstimateDeep, -NewStateRecord)
 next_node(SR, _Q, V, E, NewSR):-

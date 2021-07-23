@@ -1,5 +1,5 @@
-% a-star mutant 2-5. weighted_member is changed to my_ord_member,
-% and solution to solution2. Line 59 and 100 and 37.
+% a-star mutant 2-6. my_pop is changed to get_from_heap, 
+% and solution to solution2. Line 30 and 41, and 37 
 
 % Dostupne veci:
 %step(+State, -NewState)
@@ -26,21 +26,21 @@ a_star(S, A, C):-
 a_star(PQ, _, 'NO SOLUTION', _):-
                 empty_heap(PQ),!.
 a_star(PQ, V, Solution, C):-
-                my_pop(PQ, C, SR, _, V),
+%                my_pop(PQ, C, SR, _, V),
 %               print_node(SR),
-%               get_from_heap(PQ, C, SR, _),
+               get_from_heap(PQ, C, SR, _),
                 state_record(S, _, _, _, SR),
                 is_goal(S),
 %               write('FOUND SOLUTION'),nl,
 %               state_record(S, _, _, D, SR), write(C-D), write('   '),write(S),nl,
 %               writel(V),nl,halt,
-                solution2(SR, V, Solution).
+                solution(SR, V, Solution).
 %               solution(SR, V, Solution).
 
 a_star(PQ, V, Solution, C):-
-                my_pop(PQ, _K, SR, RPQ, V),
+%                my_pop(PQ, _K, SR, RPQ, V),
 %               print_node(SR),
-%               get_from_heap(PQ, _K, SR, RPQ), 
+               get_from_heap(PQ, _K, SR, RPQ), 
                 ord_add_element(V, SR, NV),
                 (bagof(K-NS, next_node(SR, PQ, NV, K, NS), NextNodes) ; NextNodes=[]),
 %               state_record(S, _, _, D, SR), write(_K-D), write('   '),write(S),length(NextNodes, L), write(L),nl,
