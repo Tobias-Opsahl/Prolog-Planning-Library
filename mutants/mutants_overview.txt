@@ -85,9 +85,14 @@ a-star-3-x: Miscellaneous
 			Failed, 6 tests passed, 30 tests failed, h_max
 
 forward:
-	forward-1: Not checking negative effects.
-	forward-2: Not checking positive effects.
+	forward-1: Not checking negative effects, line 31.
+			Failed, 17 tests passed, 19 tests failed, h_0
+			Failed, 17 tests passed, 19 tests failed, h_max
+	forward-2: Not checking positive effects, line 32.
+			Failed, 36/36, h_0 and h_max 
 	forward-3: Not sorting the predicates and effects
+			Failed, 31 tests passed, 5 tests failed, h_0
+			Failed, 31 tests passed, 5 tests failed, h_max
 
 Mutants idea:
 
