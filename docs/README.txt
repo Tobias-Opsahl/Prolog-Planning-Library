@@ -1,3 +1,13 @@
+This repo was created to fix some bugs in Robert Sasaks original code, and implement mutation testing. The bug fixes were accepted by Robert Sasak and are now merged with his repo. This master also contains the mutants. This was done as part of my summer internship at Simula in 2021, VIAS department, supervised by Arnaud Gotlieb. 
+Branches:
+Master: Bug fixes with mutants
+Mutants: Working branch for mutants
+Old: The original files I looked at
+Topic_branches: Reveal and fix bugs in the original code, so I could send pull request to Robert Sasak.
+
+
+Robert Sasak: 
+
 ABOUT
 -----
 This piece of software is a final implementation of my bachelor thesis. In my 
