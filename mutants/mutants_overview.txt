@@ -1,0 +1,110 @@
+The mutants are tested on h_0 and h_max, since they are the only 
+admissible heuristics. h_manhattan and h_dist are adimissible, but they 
+only work for sliding and shuffling, respectivly. 
+
+h_0 passed, 36/36
+h_max passed, 36/36
+h_diff failed, 35 tests passed, 1 test failed
+h_add failed, 32 tests passed, 4 tests failed
+h_manhattan failed, 29 tests passed, 7 tests failed
+h_dist failed, 5 tests passed, 31 tests failed
+
+a-star-1-x: Arithmetic 
+	a-star-1-1: Initial deep and nodes initial deep are changed from
+		0 and 0 to 10 and 2. Line 19 and 20.
+			Passed, 36/36, h_0 and h_max.
+	a-star-1-2: Initial deep and nodes initial deep are changed from
+		0 and 0 to -5 and 5. Line 19 and 20.
+			Passed, 36/36, h_0 and h_max.
+	a-star-1-3: Initial deep and nodes initial deep are changed from
+		0 and 0 to 100 and -10. Line 19 and 20.
+			Passed, 36/36, h_0 and h_max
+			
+	a-star-1-4: NewDeep is changed from Deep + 1 to Deep + 2. Line 64.
+			Passed, 36/36, h_0 and h_max.
+	a-star-1-5: NewDeep is changed from Deep + 1 to Deep - 1. Line 64.
+			Failed, 1 tests passed, 35 tests failed, h_0
+			Failed, 4 tests passed, 32 tests failed, h_max
+	a-star-1-6: NewDeep is changed from Deep + 1 to Deep + 0. Line 64.
+			Failed, 15 tests passed, 21 tests failed, h_0
+			Failed, 23 tests passed, 13 tests failed, h_max
+	
+	a-star-1-7: Cost value is changed from H+D to 5*H + D. Line 63
+			Passed, 36/36, h_0
+			Failed, 35 tests passed, 2 tests failed, h_max
+	a-star-1-8: Cost value is changed from H+D to H. Line 63
+			Failed, 15 tests passed, 21 tests failed, h_0
+			Failed, 23 tests passed, 13 tests failed, h_max
+	a-star-1-9: Cost value is changed from H+D to D - H. Line 63
+			Passed, 36/36, h_0
+			Failed, 33 tests passed, 3 tests failed, h_max
+			
+a-star-2-x: Alter visited nodes.
+	a-star-2-1: weighted_member is changed to my_ord_member, line 59 and 100.
+			Passed, 36/36, h_0
+			Failed, 35 tests passed, 1 test failed, h_max
+	a-star-2-2: my_pop is changed to get_from_heap, line 30 and 41.
+			Failed by computing time, 32 tests passed, 4 tests failed, h_0
+			Passed, 36/36, h_max
+	a-star-2-3: No member-check in next_node, line 65.
+			Passed, 36/36, h_0 and h_max
+	a-star-2-4: No member-check in next_node, and my_pop is changed to 
+		get_from_heap, line 65, 30 and 41. 
+			Failed by computing time, 21 tests passed, 15 tests failed, h_0
+			Failed by computing time, 24 tests passed, 12 tests failed, h_max
+			
+	a-star-2-5: weighted_member is changed to my_ord_member and solution is 
+		changed to solution2, line 59, 100 and 37.
+			Passed, 36/36, h_0 and h_max
+	a-star-2-6: my_pop is changed to get_from_heap and solution is changed to
+		solution2, line 30, 41 and 37.
+			Failed, 23 tests passed, 13 tests failed, h_0
+			Failed, 24 tests passed, 12 tests failed, h_max
+	a-star-2-7: No member-check in next_node and solution is changed to solution2, 
+		line 65.
+			Passed, 36/36, h_0,
+			Failed, 35 tests passed, 1 test failed, h_max
+	a-star-2-8: No member-check in next_node, and my_pop is changed to 
+		get_from_heap and solution is changed to solution2 line 65, 30, 41 and 37.
+			Failed, 12 tests passed, 24 tests failed, h_0
+			Failed, 14 tests passed, 22 tests failed, h_max
+	a-star-2-9: solution is changed to solution2, line 37.
+			Passed, 36/36, h_0
+			Failed, 35 tests passed, 1 test failed, h_max
+			
+	a-star-2-10: New Visited is changed to Old Visited, line 45.
+			Passed, 36/36, h_0 and h_max
+	a-star-2-11: Old Visited list is sent to a-star, line 52.
+			Failed, 36/36, h_0 and h_max
+a-star-3-x: Miscellaneous
+	a-star-3-1: NextNodes = [] is removed, line 45.
+			Failed, 15 tests passed, 21 tests failed, h_0
+			Failed, 19 tests passed, 17 tests failed, h_max
+	a-star-3-2: Last element in list does not get added to heap, line 69.
+			Failed, 6 tests passed, 30 tests failed, h_0
+			Failed, 6 tests passed, 30 tests failed, h_max
+
+forward:
+	forward-1: Not checking negative effects, line 31.
+			Failed, 17 tests passed, 19 tests failed, h_0
+			Failed, 17 tests passed, 19 tests failed, h_max
+	forward-2: Not checking positive effects, line 32.
+			Failed, 36/36, h_0 and h_max 
+	forward-3: Not sorting the predicates and effects
+			Failed, 31 tests passed, 5 tests failed, h_0
+			Failed, 31 tests passed, 5 tests failed, h_max
+
+Mutants idea:
+
+	Revisitig Nodes
+	Not updating Visited correctly
+	Not backtracking solution
+	Changing arithmetics. Wa-star, greedy bfs
+	Changing set-operations, dif, intersection, union etc.
+	Domain that exposes h_diffs non-admissility (and h_dist)
+	Change initial 0 values 
+	Remove NextNodes = []
+	Old visited to new visited
+	Dont pop from heap, only find
+	Overlook negative effects in Forward
+	
